@@ -1,0 +1,13 @@
+{% extends './includes/base.html' %}
+
+{% block header %}
+<h1>{% block title %}My Json{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for page_name in files %}
+    <li><a href="{{nav_links[2].url}}/{{page_name}}"> {{page_name}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+<nav>
+    <ul>
+        {% for link in nav_links %}
+        <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% if nav_siblings %}
+    <hr>
+    <p><strong>Other tasks in this project:</strong></p>
+    <ul>
+        {% for s in nav_siblings %}
+        <li><a href="{{ s.url }}">{{ s.text }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</nav>

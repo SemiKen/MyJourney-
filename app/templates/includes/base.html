@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Flaskr</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+    {% block style %}{% endblock %}
+</head>
+<body>
+
+    {% include './includes/menubar.html' %}
+    {% include './includes/nav.html' %}
+
+    <section class="content">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+
+        <section>
+            <h3> <button><a href="/recently">Recently</a></a></button> </h3>
+        </section>
+
+    </section>
+    
+    {% block footer %}{% endblock %}
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

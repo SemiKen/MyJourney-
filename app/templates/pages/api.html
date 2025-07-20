@@ -1,0 +1,13 @@
+{% extends './includes/base.html' %}
+
+{% block header %}
+<h1>{% block title %} File List{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for file_name in folders %}
+    <li><a href="{{nav_links[1].url}}/{{file_name}}"> {{file_name}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

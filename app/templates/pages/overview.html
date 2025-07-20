@@ -1,0 +1,19 @@
+{% extends './includes/base.html' %}
+
+{% block header %}
+<h1>{% block title %}Overview{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<ul>
+    <li><a href="/">Overview</a></li>
+    <li><a href="/project">Project</a></li>
+    <li><a href="/diary">Diary</a></li>
+    <!-- <li><a href="/favorite">Favorite</a></li> -->
+    <li><a href="/recently">Recently</a></li>
+    <li><a href="/calender">Calender</a></li>
+    <li><a href="/api">Database</a></li>
+    <li><a href="/notification">Notification</a></li>
+    <li><a href="/example_user">User Page (example_user)</a></li>
+</ul>
+{% endblock %}

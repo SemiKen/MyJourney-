@@ -1,0 +1,36 @@
+{% extends './includes/base.html' %}
+
+
+{% block header %}
+<h1>{% block title %} {{task}} - Task Details{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>{{task}}</h2>
+        <p><strong>Description:</strong> {{task_description}}</p>
+        <p><strong>Status:</strong>
+            {% if task_status == "completed" %}
+            Completed
+            {% elif task_status == "in-progress" %}
+            In Progress
+            {% else %}
+            Pending
+            {% endif %}
+        </p>
+        <p><strong>Start Date:</strong> {{task_start_date}}</p>
+        <p><strong>End Date:</strong> {{task_end_date}}</p>
+    </section>
+    
+    <section>
+        <h3>Related Links</h3>
+        <ul>
+            {% if task_documentation %}
+            <li><a href="{{task_documentation}}">Task Documentation</a></li>
+            {% endif %}
+            {% if task_repository %}
+            <li><a href="{{task_repository}}">Task Repository</a></li>
+            {% endif %}
+        </ul>
+    </section>
+{% endblock %}

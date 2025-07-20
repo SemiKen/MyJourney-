@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{diary}} - Diary Details</title>
+</head>
+
+<body>
+    <header>
+        <h1>Diary Details</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Back to Overview</a></li>
+                <li><a href="/{{page_url}}">Back to Diary List</a></li>
+                <li><a href="#">Other Diary Entries</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>{{diary}} - Diary Overview</h2>
+        <p><strong>Diary Description:</strong> {{diary_description}}</p>
+        <p><strong>Start Date:</strong> {{start_date}}</p>
+        <p><strong>End Date:</strong> {{end_date}}</p>
+        <p><strong>Status:</strong> {{diary_status}}</p>
+    </section>
+
+    <!-- Diary Links -->
+    <section>
+        <h3>Diary Links</h3>
+        <ul>
+            {% if diary_link %}
+            <li><a href="{{diary_link}}">Diary Documentation</a></li>
+            {% endif %}
+            {% if diary_repository %}
+            <li><a href="{{diary_repository}}">Diary Repository</a></li>
+            {% endif %}
+        </ul>
+    </section>
+
+    <!-- Diary Entries -->
+    <section>
+        <h3>Diary Entries</h3>
+        <ul>
+            {% if diary_entries %}
+            {% for entry in diary_entries %}
+            <li>
+                <a href="./{{page_url}}/{{diary_name}}/entries/{{entry.date}}">
+                    <strong>{{entry.date}}</strong> - {{entry.title}}
+                    <span>({{entry.status}})</span>
+                </a>
+            </li>
+            {% endfor %}
+            {% else %}
+            <li>No diary entries available</li>
+            {% endif %}
+        </ul>
+    </section>
+
+<!-- Topics -->
+<section>
+    <h3>Diary Topics</h3>
+    <ul>
+        {% if topics %}
+        {% for topic in topics %}
+        <li>
+            <h3>
+                <strong>{{topic.name}}</strong>
+                <p>{{topic.description}}</p>
+            </h3>
+            <!-- Tags Section -->
+            {% if topic.tags %}
+            <div class="tags">
+                <strong>Tags:</strong>
+                {% for tag in topic.tags %}
+                <a href="./{{diary}}/tags/{{tag}}" class="tag">{{tag}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- ปุ่ม View More -->
+            <a href="./{{diary}}/{{topic.name}}" class="view-more">View More</a>
+        </li>
+        {% endfor %}
+        {% else %}
+        <li>No topics available</li>
+        {% endif %}
+    </ul>
+</section>
+
+</body>
+
+</html>

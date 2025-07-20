@@ -1,0 +1,63 @@
+{% extends './includes/base.html' %}
+
+{% block header %}
+<h1>{% block title %} {{project}} - Project Details{% endblock %}</h1>
+
+{% endblock %}
+
+{% block content %}
+<section>
+    <h2>{{project}}</h2>
+    <p><strong>Project Description:</strong> {{project_description}}</p>
+    <p><strong>Start Date:</strong> {{start_date}}</p>
+    <p><strong>End Date:</strong> {{end_date}}</p>
+    <p><strong>Status:</strong> {{project_status}}</p>
+</section>
+
+<!-- <section>
+        <h3>Team Members</h3>
+        <ul>
+            <li>{{team_member_1}}</li>
+            <li>{{team_member_2}}</li>
+            <li>{{team_member_3}}</li>
+        </ul>
+    </section> -->
+
+<section>
+    <h3>Project Links</h3>
+    <ul>
+        {% if project_link %}
+        <li><a href="{{project_link}}">Project Documentation</a></li>
+        {% endif %}
+        {% if project_repository %}
+        <li><a href="{{project_repository}}">Project Repository</a></li>
+        {% endif %}
+    </ul>
+</section>
+
+<section>
+    <h3>Project Tasks</h3>
+    <ul>
+        {% if tasks %}
+        {% for task in tasks %}
+        <li>
+            <a href="./{{project}}/{{task.name}}">
+                <strong>{{task.name}}</strong> -
+                <span>Status:
+                    {% if task.status == "completed" %}
+                    Completed
+                    {% elif task.status == "in-progress" %}
+                    In Progress
+                    {% else %}
+                    Pending
+                    {% endif %}
+                </span>
+            </a>
+        </li>
+        {% endfor %}
+        {% else %}
+        <li>No tasks available</li>
+        {% endif %}
+    </ul>
+</section>
+{% endblock %}
