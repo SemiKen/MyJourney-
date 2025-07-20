@@ -1,0 +1,77 @@
+/* ฟอนต์น่ารักๆ อ่านง่าย */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #e6f2ff; /* ฟ้าจางใจดี */
+    color: #003366; /* น้ำเงินเข้มอ่านง่าย */
+}
+
+/* Content Container */
+.content {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* เมนู & เนวิเกชั่น */
+nav, .menubar {
+    background: #3399ff;
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a, .menubar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.2s;
+}
+
+nav a:hover, .menubar a:hover {
+    color: #cceeff;
+}
+
+/* Flash Messages */
+.flash {
+    background: #dff0ff;
+    color: #004466;
+    border-left: 5px solid #66ccff;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+/* Header */
+header {
+    border-bottom: 2px solid #99ccff;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+/* ปุ่ม Recently */
+button {
+    background: #3399ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #267acc;
+}
+
+/* ลิงก์ในปุ่ม */
+button a {
+    color: white;
+    text-decoration: none;
+}
